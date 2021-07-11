@@ -16,7 +16,7 @@ public class UserRegistration {
 
 		//RggjgT35
 
-		String regex =  "^[A-Z]{1}+[a-zA-Z0-9]{8,}$";
+		String regex =  "^[0-9A-Z]{1}+([0-9a-zA-Z]{8,})*$";
 
 		Pattern pattern = Pattern.compile(regex);
 		Matcher matcher = pattern.matcher(Password );
