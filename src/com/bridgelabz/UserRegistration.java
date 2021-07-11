@@ -9,21 +9,21 @@ public class UserRegistration {
 	
 	public static void main(String[] args) {
 		System.out.println("Welcome to User-Registration");
-		System.out.println("Enter Phone Number:");
+		System.out.println("Enter Password:");
 		Scanner sc = new Scanner(System.in);
-		String PhoneNumber = sc.next();
+		String Password = sc.next();
 
-		//91 7886879879
+		//gggjgT35
 
-		String regex = "^[0-9]{2}\\s{0,1}[0-9]{10}$";
+		String regex =  "^[a-zA-Z0-9]{8,}$";
 
 		Pattern pattern = Pattern.compile(regex);
-		Matcher matcher = pattern.matcher(PhoneNumber );
+		Matcher matcher = pattern.matcher(Password );
 		boolean result = matcher.matches();
 		if (result)
-			System.out.println("Valid Phone Number");
+			System.out.println("Valid Password");
 		else
-			System.out.println("Invalid Phone Number");
+			System.out.println("Invalid Password");
 		sc.close();
 		
 	}
