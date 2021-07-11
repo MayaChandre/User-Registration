@@ -6,22 +6,24 @@ import java.util.regex.Pattern;
 
 public class UserRegistration {
 
+	// Last name must start with Capital letter and has minimum 3 length
+	
 	public static void main(String[] args) {
 		System.out.println("Welcome to User-Registration");
-		System.out.println("Enter First Name of User::");
+		System.out.println("Enter Last Name of User::");
 		Scanner sc = new Scanner(System.in);
-		String firstName = sc.next();
+		String lastName = sc.next();
 
 
 		String regex = "^[A-Z]([a-z]{2})+$";
 
 		Pattern pattern = Pattern.compile(regex);
-		Matcher matcher = pattern.matcher(firstName);
+		Matcher matcher = pattern.matcher(lastName);
 		boolean result = matcher.matches();
 		if (result)
-			System.out.println("Valid firstName");
+			System.out.println("Valid lastName");
 		else
-			System.out.println("Invalid firstName");
+			System.out.println("Invalid lasttName");
 		sc.close();
 		
 	}
