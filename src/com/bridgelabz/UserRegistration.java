@@ -1,29 +1,23 @@
 package com.bridgelabz;
 
-import java.util.Scanner;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class UserRegistration {
 
 	
-	public static void main(String[] args) 
-	{
-		System.out.println("Welcome to User-Registration");
-		System.out.println("Enter Password:");
-		Scanner sc = new Scanner(System.in);
-		String Password = sc.next();
+	public static void main(String[] args) {
+        String[] validEmailSample = {"abc@yahoo.com", "abc-100@yahoo.com", "abc.100@yahoo.com", "abc111@abc.com", "abc-100@abc.net", "abc.100@abc.com.au", "abc@1.com", "abc@gmail.com.com", "abc+100@gmail.com"};
+        String[] invalidEmailSample = {"abc", "abc@.com.my", "abc123@gmail.a", "abc123@.com", "abc123@.com.com", ".abc@abc.com", "abc()*@gmail.com", "abc@%*.com", "abc..2002@gmail.com", "abc.@gmail.com", "abc@abc@gmail.com", "abc@gmail.com.1a", "abc@gmail.com.aa.au" };
 
-		String regex =  "^(?=.*[A-Z])(?=.*[0-9])(?=.*[@$!%*#?&])[A-Za-z0-9@$!%*?&]{5,}$";
-		Pattern pattern = Pattern.compile(regex);
-		Matcher matcher = pattern.matcher(Password );
-		boolean result = matcher.matches();
-		if (result)
-			System.out.println("Valid Password");
-		else
-			System.out.println("Invalid Password");
-		sc.close();
-		
-	}
+        System.out.println("Valid email :");
+        emailValidate(validEmailSample);
+        System.out.println("\nInvalid emails :");
+        emailValidate(invalidEmailSample);
+    }
 
+    public static void emailValidate(String[] emails) {
+        for (String email : emails) {
+            System.out.print(Pattern.matches("^[\\w+_-]+(?:\\.[\\w+_-]+)*[@][\\w]{1,}([.]{1}[a-z]{2,}){1,2}$", email) + " ");
+        }
+    }
 }
