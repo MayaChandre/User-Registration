@@ -14,10 +14,7 @@ public class UserRegistration {
 		Scanner sc = new Scanner(System.in);
 		String Password = sc.next();
 
-		//RggjgT35
-
-		String regex =  "^[0-9A-Z]{1}+([0-9a-zA-Z]{8,})*$";
-
+		String regex =  "^(?=.*[A-Z])(?=.*[0-9])(?=.*[@$!%*#?&])[A-Za-z0-9@$!%*?&]{5,}$";
 		Pattern pattern = Pattern.compile(regex);
 		Matcher matcher = pattern.matcher(Password );
 		boolean result = matcher.matches();
